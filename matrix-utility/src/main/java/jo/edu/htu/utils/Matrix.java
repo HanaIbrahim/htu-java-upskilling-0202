@@ -14,12 +14,17 @@ public class Matrix {
             if (matrix[row].length != matrix[0].length) {
                 throw new IllegalArgumentException("Inconsistent rows");
             }
+            if (matrix[row].length > row) {
+                throw new IllegalArgumentException("Inconsistent rows");
+            }
+
         }
+
 
         int[][] myInt = new int[matrix.length][];
         for (int i = 0; i < matrix.length; i++)
             myInt[i] = matrix[i].clone();
-
+        
         this.matrix = myInt;
         rows = matrix.length;
         cols = matrix[0].length;
