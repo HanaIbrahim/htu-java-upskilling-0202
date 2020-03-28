@@ -35,8 +35,13 @@ public class Matrix {
     }
 
     public int value(int row, int col) {
-        if (row > matrix.length - 1) {
-            throw new IllegalArgumentException("invalid cell index: " + row + "," + col);
+        for (int i = 0; i < matrix.length; i++) {
+            if (row > matrix.length - 1) {
+                throw new IllegalArgumentException("invalid cell index: " + row + "," + col);
+            }
+            if (col > matrix[i].length - 1) {
+                throw new IllegalArgumentException("invalid cell index: " + row + "," + col);
+            }
         }
         return matrix[row][col];
     }
